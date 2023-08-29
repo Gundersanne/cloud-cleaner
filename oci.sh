@@ -17,7 +17,9 @@ if ! hash oci && [ ! -e /root/bin/oci ]; then
 fi
 
 OCI_CONFIG=$(mktemp -p "${TEMPDIR}")
-echo "$OCI_PRIV_KEY_DATA" > "${TEMPDIR}/priv_key.pem"
+echo $OCI_PRIV_KEY_DATA > "${TEMPDIR}/priv_key.pem"
+cat "${TEMPDIR}/priv_key.pem"
+wc "${TEMPDIR}/priv_key.pem"
 echo "$OCI_CONFIG_DATA" > "$OCI_CONFIG"
 echo "key_file=${TEMPDIR}/priv_key.pem" >> "$OCI_CONFIG"
 
